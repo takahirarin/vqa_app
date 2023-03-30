@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RESULT</title>
+  </head>
+
+  <body>
+    <h1>結果</h1>
+    <img src="{{ now_image.image.url }}" width="200" />
+    <h2>question: {{ now_image.text }}</h2>
+    <h2>answer: {{ now_image.answer }}</h2>
+
+ 
+
+    <h2>過去の結果</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>image</th>
+          <th>question</th>
+          <th>predicted answer</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for image in images %}
+        <tr>
+          <td><img src="{{ image.image.url }}" height="70" /></td>
+          <td><h3>{{ image.text }}</h3></td>
+          <td><h3>   {{ image.answer }}</h3></td>
+        </tr>
+        {% endfor %}
+    
+    <a href="{% url 'vqa:upload' %}">Upload more</a>
+    <br />
+  </body>
+</html>

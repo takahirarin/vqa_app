@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Visual Question Answering</title>
+  </head>
+
+  <body>
+    <h1>VQA</h1>
+    <p>
+     vqaでは,画像と画像に対する質問を入力すると解答が得られます。
+      <br />
+      画像と質問文をアップロードしてみましょう。
+    </p>
+    <form
+      enctype="multipart/form-data"
+      action="{% url 'vqa:upload' %}"
+      method="POST"
+    >
+    
+      {% csrf_token %} {{form.as_p}}
+      <br />
+      <button type="submit">get answer</button>
+      <a href="{% url 'vqa:result' %}">過去の結果一覧を見る</a>
+    </form>
+  </body>
+</html>
